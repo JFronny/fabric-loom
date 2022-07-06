@@ -61,6 +61,7 @@ public class HashedDownloadUtil {
 		startDownload.run();
 
 		HttpURLConnection connection = (HttpURLConnection) from.openConnection();
+		connection.setAuthenticator(new ProxyAuthenticator());
 		connection.setRequestProperty("Accept-Encoding", "gzip");
 		connection.connect();
 

@@ -84,6 +84,9 @@ public class DownloadUtil {
 		// We want to download gzip compressed stuff
 		connection.setRequestProperty("Accept-Encoding", "gzip");
 
+		// Support using proxies with authentication
+		connection.setAuthenticator(new ProxyAuthenticator());
+
 		// Try make the connection, it will hang here if the connection is bad
 		connection.connect();
 
